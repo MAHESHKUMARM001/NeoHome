@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "667745206672",
+    "project_id": "plastic-51b97",
+    "storage_bucket": "plastic-51b97.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667745206672:android:89ccb28bc95d0bb6fc3315",
+        "android_client_info": {
+          "package_name": "com.example.plastic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJGni-k6aWbNMq_Wp07irIPJ45iuhbCZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
