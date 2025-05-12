@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:neohome_iot/privacy.dart';
+import 'package:neohome_iot/termsandconditions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
@@ -33,8 +35,21 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
   }
 
   Future<void> _launchUrl(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    try {
+      final uri = Uri.parse(url);
+      if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+        throw "Could not launch $url";
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Could not open link: $e',
+            style: GoogleFonts.poppins(color: Colors.white),
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -316,13 +331,23 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
                           _buildActionButton(
                             icon: Icons.privacy_tip,
                             text: 'Privacy Policy',
-                            onTap: () => _launchUrl('https://smarthomeiot.com/privacy'),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
+                              );
+                            },
                           ),
                           const SizedBox(height: 15),
                           _buildActionButton(
                             icon: Icons.description,
                             text: 'Terms of Service',
-                            onTap: () => _launchUrl('https://smarthomeiot.com/terms'),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => TermsAndConditionsPage()),
+                              );
+                            },
                           ),
                           const SizedBox(height: 20),
                           Text(
