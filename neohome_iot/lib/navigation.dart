@@ -5,6 +5,8 @@ import 'package:neohome_iot/contact.dart';
 import 'package:neohome_iot/home.dart';
 import 'package:neohome_iot/profile.dart';
 
+import 'documentation.dart';
+
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -19,7 +21,7 @@ class _MainNavigationState extends State<MainNavigation> {
     HomePage(),
      AboutPage(),
     ContactPage(),
-    const DocsPage(),
+    NeoHomeDocumentationPage(),
     ProfilePage(),
     const SettingsPage(),
   ];
@@ -125,14 +127,14 @@ class _MainNavigationState extends State<MainNavigation> {
                     index: 0,
                   ),
                   _buildMenuItem(
-                    icon: Icons.person_outline_rounded,
-                    title: 'Profile',
-                    index: 4,
-                  ),
-                  _buildMenuItem(
                     icon: Icons.info_outline_rounded,
                     title: 'About',
                     index: 1,
+                  ),
+                  _buildMenuItem(
+                    icon: Icons.article_outlined,
+                    title: 'Documentation',
+                    index: 3,
                   ),
                   _buildMenuItem(
                     icon: Icons.contact_mail_outlined,
@@ -140,63 +142,23 @@ class _MainNavigationState extends State<MainNavigation> {
                     index: 2,
                   ),
                   _buildMenuItem(
-                    icon: Icons.article_outlined,
-                    title: 'Documentation',
-                    index: 3,
+                    icon: Icons.person_outline_rounded,
+                    title: 'Profile',
+                    index: 4,
                   ),
-                  const Divider(color: Colors.white24, height: 30),
-                  _buildMenuItem(
-                    icon: Icons.settings_outlined,
-                    title: 'Settings',
-                    index: 5,
-                  ),
+
+                  // const Divider(color: Colors.white24, height: 30),
+                  // _buildMenuItem(
+                  //   icon: Icons.settings_outlined,
+                  //   title: 'Settings',
+                  //   index: 5,
+                  // ),
                 ],
               ),
             ),
 
             // Footer with User Info
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    color: Colors.white.withOpacity(0.1),
-                    width: 1,
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 22,
-                    backgroundImage: NetworkImage(
-                      'https://randomuser.me/api/portraits/men/32.jpg',
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Admin User',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'admin@neohome.com',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          color: Colors.white70,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+
           ],
         ),
       ),
@@ -377,60 +339,60 @@ class _MainNavigationState extends State<MainNavigation> {
 //   }
 // }
 
-class DocsPage extends StatelessWidget {
-  const DocsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.article, size: 60, color: Colors.white),
-          const SizedBox(height: 20),
-          Text(
-            'Documentation',
-            style: GoogleFonts.poppins(
-              fontSize: 24,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildDocItem('Getting Started'),
-          _buildDocItem('Device Setup'),
-          _buildDocItem('API Reference'),
-          _buildDocItem('Troubleshooting'),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDocItem(String title) {
-    return Container(
-      width: 200,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.description, color: Colors.cyanAccent),
-          const SizedBox(width: 10),
-          Text(
-            title,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class DocsPage extends StatelessWidget {
+//   const DocsPage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           const Icon(Icons.article, size: 60, color: Colors.white),
+//           const SizedBox(height: 20),
+//           Text(
+//             'Documentation',
+//             style: GoogleFonts.poppins(
+//               fontSize: 24,
+//               color: Colors.white,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           _buildDocItem('Getting Started'),
+//           _buildDocItem('Device Setup'),
+//           _buildDocItem('API Reference'),
+//           _buildDocItem('Troubleshooting'),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildDocItem(String title) {
+//     return Container(
+//       width: 200,
+//       margin: const EdgeInsets.symmetric(vertical: 8),
+//       padding: const EdgeInsets.all(12),
+//       decoration: BoxDecoration(
+//         color: Colors.white.withOpacity(0.1),
+//         borderRadius: BorderRadius.circular(8),
+//       ),
+//       child: Row(
+//         children: [
+//           const Icon(Icons.description, color: Colors.cyanAccent),
+//           const SizedBox(width: 10),
+//           Text(
+//             title,
+//             style: GoogleFonts.poppins(
+//               color: Colors.white,
+//               fontSize: 16,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 // class ProfilePage extends StatelessWidget {
 //   const ProfilePage({super.key});

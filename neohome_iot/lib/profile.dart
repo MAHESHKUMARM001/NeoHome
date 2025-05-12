@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:neohome_iot/login.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -35,8 +36,6 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
     super.dispose();
   }
 
-
-
   // Fetch user details from Firestore
   Future<Map<String, String>?> _fetchUserDetails() async {
     final User? user = FirebaseAuth.instance.currentUser;
@@ -59,6 +58,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
     }
     return null; // No matching user document
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -235,8 +235,6 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                                 title: 'Phone',
                                 value: userPhone,
                               ),
-                              // const Divider(color: Colors.white24, height: 20),
-
                             ],
                           ),
                         ),
@@ -339,6 +337,48 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                         ),
                         SizedBox(height: size.height * 0.05),
 
+                        // Logout Button
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () async  {
+                                await FirebaseAuth.instance.signOut();
+                                await GoogleSignIn().signOut();
+                                // Navigator.of(context).pop();
+                                Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => const LoginPage()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 15,
+                              ),
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              side: BorderSide(
+                                color: Colors.white.withOpacity(0.3),
+                              ),
+                            ).copyWith(
+                              foregroundColor: WidgetStateProperty.all(Colors.white),
+                              overlayColor: WidgetStateProperty.all(Colors.white.withOpacity(0.1)),
+                              backgroundColor: WidgetStateProperty.all(
+                                Colors.redAccent.withOpacity(0.8),
+                              ),
+                            ),
+                            child: Text(
+                              'Log Out',
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: size.height * 0.05),
                       ],
                     ),
                   ),
@@ -429,55 +469,6 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStatCard({
-    required String value,
-    required String label,
-    required IconData icon,
-    required Color color,
-  }) {
-    return Container(
-      width: 120,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.white.withOpacity(0.1),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.3),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              value,
-              style: GoogleFonts.poppins(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(icon, size: 16, color: color),
-                const SizedBox(width: 5),
-                Text(
-                  label,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    color: Colors.white70,
-                  ),
-                ),
-              ],
-            ),
-          ],
         ),
       ),
     );

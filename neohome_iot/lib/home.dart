@@ -113,30 +113,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-
-                TextButton(
-                  child: Text(
-                    "Logout",
-                    style: GoogleFonts.poppins(
-                      color: const Color(0xFFE75480),
-                    ),
-                  ),
-                  onPressed: () async {
-                    await FirebaseAuth.instance.signOut();
-                    await GoogleSignIn().signOut();
-                    // Navigator.of(context).pop();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()),
-                    );
-                  },
-                ),
-
-
-
-
-
-
                 const SizedBox(height: 30),
               ],
             ),
