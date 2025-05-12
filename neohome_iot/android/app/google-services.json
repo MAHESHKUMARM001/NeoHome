@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "863046231842",
+    "project_id": "neohome-iot",
+    "storage_bucket": "neohome-iot.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863046231842:android:4bb0244860d99103dd677b",
+        "android_client_info": {
+          "package_name": "com.example.neohome_iot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863046231842-6ccqf217i36jcfhrnn58spjdsvbr962o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP518myFN0oVNQrjdLoLccvmUN9B7Nf1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863046231842-6ccqf217i36jcfhrnn58spjdsvbr962o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
