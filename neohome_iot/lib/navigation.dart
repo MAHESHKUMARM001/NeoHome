@@ -23,7 +23,6 @@ class _MainNavigationState extends State<MainNavigation> {
     ContactPage(),
     NeoHomeDocumentationPage(),
     ProfilePage(),
-    const SettingsPage(),
   ];
 
   @override
@@ -458,85 +457,85 @@ class _MainNavigationState extends State<MainNavigation> {
 //   }
 // }
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.settings, size: 60, color: Colors.white),
-          const SizedBox(height: 20),
-          Text(
-            'Settings',
-            style: GoogleFonts.poppins(
-              fontSize: 24,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildSettingSwitch('Dark Mode', true),
-          _buildSettingSwitch('Notifications', true),
-          _buildSettingSwitch('Auto Update', false),
-          const SizedBox(height: 20),
-          _buildSettingsButton('Advanced Settings'),
-          _buildSettingsButton('Logout'),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSettingSwitch(String text, bool value) {
-    return Container(
-      width: 250,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            text,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-          ),
-          Switch(
-            value: value,
-            activeColor: Colors.cyanAccent,
-            onChanged: (bool newValue) {},
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSettingsButton(String text) {
-    return Container(
-      width: 200,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      child: OutlinedButton(
-        onPressed: () {},
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: Colors.white.withOpacity(0.3)),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        child: Text(
-          text,
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class SettingsPage extends StatelessWidget {
+//   const SettingsPage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           const Icon(Icons.settings, size: 60, color: Colors.white),
+//           const SizedBox(height: 20),
+//           Text(
+//             'Settings',
+//             style: GoogleFonts.poppins(
+//               fontSize: 24,
+//               color: Colors.white,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           _buildSettingSwitch('Dark Mode', true),
+//           _buildSettingSwitch('Notifications', true),
+//           _buildSettingSwitch('Auto Update', false),
+//           const SizedBox(height: 20),
+//           _buildSettingsButton('Advanced Settings'),
+//           _buildSettingsButton('Logout'),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildSettingSwitch(String text, bool value) {
+//     return Container(
+//       width: 250,
+//       margin: const EdgeInsets.symmetric(vertical: 8),
+//       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+//       decoration: BoxDecoration(
+//         color: Colors.white.withOpacity(0.1),
+//         borderRadius: BorderRadius.circular(8),
+//       ),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             text,
+//             style: GoogleFonts.poppins(
+//               color: Colors.white,
+//               fontSize: 16,
+//             ),
+//           ),
+//           Switch(
+//             value: value,
+//             activeColor: Colors.cyanAccent,
+//             onChanged: (bool newValue) {},
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildSettingsButton(String text) {
+//     return Container(
+//       width: 200,
+//       margin: const EdgeInsets.symmetric(vertical: 8),
+//       child: OutlinedButton(
+//         onPressed: () {},
+//         style: OutlinedButton.styleFrom(
+//           side: BorderSide(color: Colors.white.withOpacity(0.3)),
+//           shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.circular(8),
+//           ),
+//         ),
+//         child: Text(
+//           text,
+//           style: GoogleFonts.poppins(
+//             color: Colors.white,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

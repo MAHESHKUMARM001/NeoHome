@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -24,7 +26,7 @@ class _IoTControlPanelState extends State<IoTControlPanel> {
   MqttServerClient? client;
   String _connectionStatus = 'Disconnected';
   String _lastUpdate = 'Never';
-  final String _mqttServer = '13.42.32.58';
+  final String _mqttServer = '18.175.142.227';
   final String _clientId = 'flutter_${DateTime.now().millisecondsSinceEpoch}';
 
   // Component management
@@ -391,6 +393,7 @@ class _IoTControlPanelState extends State<IoTControlPanel> {
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
+          _buildCopyCard(),
           _buildConnectionCard(),
           SizedBox(height: 20),
           ..._componentConfigs.entries.map((entry) =>
@@ -419,6 +422,35 @@ class _IoTControlPanelState extends State<IoTControlPanel> {
             ? Icon(Icons.check_circle, color: Colors.green)
             : Icon(Icons.error, color: Colors.red),
       ),
+    );
+  }
+  Widget _buildCopyCard() {
+    return Card(
+      child: Padding(padding: EdgeInsets.fromLTRB(15, 20, 20, 20),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                'User ID: ${widget.deviceId}',
+                style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.copy, color: Color(0xFFE75480)),
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: 'Device ID: ${widget.deviceId}'));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('User ID copied to clipboard')),
+                );
+              },
+            ),
+          ],
+        ),
+      )
     );
   }
 

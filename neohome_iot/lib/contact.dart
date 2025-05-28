@@ -76,7 +76,7 @@ class _ContactPageState extends State<ContactPage> with SingleTickerProviderStat
 
     final message = Message()
       ..from = Address(_emailController.text, _nameController.text) // Use .text property
-      ..recipients.add('maheshkumarm001234@gmail.com')
+      ..recipients.add('hashanmedicare@gmail.com')
       ..subject = 'Message from ${_nameController.text}' // Added subject with name
       ..text = _messageController.text; // Use .text property
 
@@ -332,24 +332,24 @@ class _ContactPageState extends State<ContactPage> with SingleTickerProviderStat
                 children: [
                   _buildContactItem(
                     icon: Icons.location_on,
-                    text: '123 Tech Street, San Francisco, CA 94105, USA',
+                    text: '276N1, SankaranKovil Road, Rajapalayam, Backside of RasiMahal',
                   ),
                   const SizedBox(height: 15),
                   _buildContactItem(
                     icon: Icons.phone,
-                    text: '+1 (415) 555-1234',
-                    onTap: () => _launchUrl('tel:+14155551234'),
+                    text: '+91 7904685847',
+                    onTap: () => _launchUrl('tel:+917904685847'),
                   ),
                   const SizedBox(height: 15),
                   _buildContactItem(
                     icon: Icons.email,
-                    text: 'support@smarthomeiot.com',
-                    onTap: () => _launchUrl('mailto:support@smarthomeiot.com'),
+                    text: 'hashanmedicare@gmail.com',
+                    onTap: () => _launchUrl('mailto:hashanmedicare@gmail.com'),
                   ),
                   const SizedBox(height: 15),
                   _buildContactItem(
                     icon: Icons.access_time,
-                    text: 'Mon-Fri, 9:00 AM - 5:00 PM PST',
+                    text: 'Mon-Sat, 9:00 AM - 7:00 PM PST',
                   ),
                 ],
               ),
@@ -382,7 +382,7 @@ class _ContactPageState extends State<ContactPage> with SingleTickerProviderStat
               // const SizedBox(width: 20),
               _buildSocialIcon('images/linkedinlogo.png', 'https://www.linkedin.com/in/maheshkumar-m-3778b823a/'),
               // const SizedBox(width: 20),
-              _buildSocialIcon('images/instagramlogo.jpg', 'https://instagram.com/smarthomeiot'),
+              _buildSocialIcon('images/instagramlogo.jpg', 'https://www.instagram.com/hashanmedicare'),
               // const SizedBox(width: 20),
               _buildSocialIcon('images/facebook.png', 'https://instagram.com/smarthomeiot'),
             ],

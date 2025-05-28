@@ -277,20 +277,26 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
                         child: Row(
                           children: [
                             _buildTeamMember(
-                              name: 'Alex Johnson',
+                              name: 'Dr.N.Pothirasan',
                               role: 'Founder & CEO',
                               image: 'images/team1.jpg',
                             ),
                             const SizedBox(width: 20),
                             _buildTeamMember(
-                              name: 'Sarah Chen',
-                              role: 'Lead Developer',
+                              name: 'Mr.M.Karthick',
+                              role: 'Iot Developer',
                               image: 'images/team1.jpg',
                             ),
                             const SizedBox(width: 20),
                             _buildTeamMember(
-                              name: 'Michael Brown',
-                              role: 'UI/UX Designer',
+                              name: 'Mr.M.Mahesh\nkumar',
+                              role: 'App Developer',
+                              image: 'images/team1.jpg',
+                            ),
+                            const SizedBox(width: 20),
+                            _buildTeamMember(
+                              name: 'Mr.M.Ganesh ',
+                              role: 'Technical Support',
                               image: 'images/team1.jpg',
                             ),
                           ],
@@ -325,7 +331,7 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
                           _buildActionButton(
                             icon: Icons.email,
                             text: 'Contact Us',
-                            onTap: () => _launchUrl('mailto:support@smarthomeiot.com'),
+                            onTap: () => _launchUrl('mailto:hashanmedicare@gmail.com'),
                           ),
                           const SizedBox(height: 15),
                           _buildActionButton(
@@ -351,7 +357,7 @@ class _AboutPageState extends State<AboutPage> with SingleTickerProviderStateMix
                           ),
                           const SizedBox(height: 20),
                           Text(
-                            '© 2023 SmartHome IoT. All rights reserved.',
+                            '© 2023 NeoHome IoT. All rights reserved.',
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               color: Colors.white70,

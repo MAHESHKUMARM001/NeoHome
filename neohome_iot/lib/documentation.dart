@@ -37,8 +37,21 @@ class _NeoHomeDocumentationPageState extends State<NeoHomeDocumentationPage>
   }
 
   Future<void> _launchUrl(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    try {
+      final uri = Uri.parse(url);
+      if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+        throw "Could not launch $url";
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Could not open link: $e',
+            style: GoogleFonts.poppins(color: Colors.white),
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -599,9 +612,9 @@ void loop() {
         ),
         const SizedBox(height: 8),
         GestureDetector(
-          onTap: () => _launchUrl('https://github.com/your-repo'),
+          onTap: () => _launchUrl('https://github.com/MAHESHKUMARM001/NeoHome_IOT.git'),
           child: Text(
-            'github.com/your-repo',
+            'https://github.com/MAHESHKUMARM001/NeoHome_IOT.git',
             style: GoogleFonts.poppins(
               fontSize: 14,
               color: Colors.cyanAccent,
